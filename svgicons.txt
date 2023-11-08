@@ -109,3 +109,17 @@ Success
 </g>
 </svg>
 
+
+<DrawingImage x:Key="LoadingSpinnerDrawingImage">
+  <DrawingImage.Drawing>
+    <DrawingGroup ClipGeometry="M0,0 V96 H96 V0 H0 Z">
+      <DrawingGroup Opacity="1">
+        <GeometryDrawing Geometry="F1 M96,96z M0,0z M48,9L48,19 M48,72L48,88 M23,48L9,48 M85,48L79,48 M73.8284,73.8284L71,71 M74.6569,21.6631L69,27.32 M19.6863,76.3137L31,65 M20.5147,20.8347L29,29.32">
+          <GeometryDrawing.Pen>
+            <Pen Brush="#FF08354F" Thickness="8" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+          </GeometryDrawing.Pen>
+        </GeometryDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+  </DrawingImage.Drawing>
+</DrawingImage>
