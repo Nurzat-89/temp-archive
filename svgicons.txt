@@ -101,3 +101,11 @@ Success
     </DrawingGroup>
   </DrawingImage.Drawing>
 </DrawingImage>
+
+
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="loading-01">
+<path id="Icon" d="M48 9V19M48 72V88M23 48H9M85 48H79M73.8284 73.8284L71 71M74.6569 21.6631L69 27.32M19.6863 76.3137L31 65M20.5147 20.8347L29 29.32" stroke="#08354F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
+
