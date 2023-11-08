@@ -148,3 +148,6 @@ Success
         </Canvas>
     </Grid>
 </Window>
+
+Storyboard rotationStoryboard = (Storyboard)FindResource("RotationStoryboard");
+rotationStoryboard.Begin();
