@@ -88,3 +88,16 @@ Success
 </g>
 </svg>
 
+<DrawingImage x:Key="downloadIconDrawingImage">
+  <DrawingImage.Drawing>
+    <DrawingGroup ClipGeometry="M0,0 V96 H96 V0 H0 Z">
+      <DrawingGroup Opacity="1">
+        <GeometryDrawing Geometry="F1 M96,96z M0,0z M32,48L48,64 M48,64L64,48 M48,64L48,32 M88,48C88,70.0914 70.0914,88 48,88 25.9086,88 8,70.0914 8,48 8,25.9086 25.9086,8 48,8 70.0914,8 88,25.9086 88,48z">
+          <GeometryDrawing.Pen>
+            <Pen Brush="#FF08354F" Thickness="6" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+          </GeometryDrawing.Pen>
+        </GeometryDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+  </DrawingImage.Drawing>
+</DrawingImage>
