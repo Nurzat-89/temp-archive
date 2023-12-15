@@ -523,3 +523,73 @@ rotationStoryboard.Begin();
   </DrawingImage.Drawing>
 </DrawingImage>
 
+
+using System;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+ 
+namespace Schenck.Mas.Backend.Common.ApiContract.Client
+{
+    /// <summary>
+    /// <see cref="IJsonSerializerSettingsFactory"/> is used to add all registered
+    /// <see cref="JsonConverter"/> through all configured web apis respective its registered
+    /// services to a <see cref="JsonSerializerSettings"/> collection, e.g for MVC or SignalR hubs.
+    /// If a service layer shall provide additional <see cref="JsonConverter"/>
+    /// a service has to implement this interface and registered during configure services.
+    /// </summary>
+    public interface IJsonSerializerSettingsFactory
+    {
+        /// <summary>
+        /// This method collects all registered <see cref="JsonConverter"/>s and add it to
+        /// a <see cref="JsonSerializerSettings"/>
+        /// </summary>
+        /// <param name="targetSettings">Settings object, where the converter shall be added</param>
+        /// <param name="logger">
+        /// If unequal null, <see cref="JsonSerializerSettings.Error"/> writes error to logger
+        /// </param>
+        /// <exception cref="ArgumentNullException">if <paramref name="targetSettings"/> equals null</exception>
+        void SetJsonSerializerSettings(JsonSerializerSettings targetSettings, ILogger logger = null);
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+ 
+namespace Schenck.Mas.Backend.Common.ApiContract.Client
+{
+    /// <inheritdoc />
+    public class JsonSerializerSettingsFactory : IJsonSerializerSettingsFactory
+    {
+        private readonly IEnumerable<IJsonConverterProvider> _converterProviders;
+ 
+        /// <summary>
+        /// ctor
+        /// </summary>
+        public JsonSerializerSettingsFactory(IEnumerable<IJsonConverterProvider> converterProviders)
+        {
+            _converterProviders = converterProviders;
+        }
+ 
+        /// <inheritdoc />
+        public void SetJsonSerializerSettings(JsonSerializerSettings targetSettings, ILogger logger = null)
+        {
+            if (targetSettings?.Converters == null)
+            {
+                throw new ArgumentNullException(nameof(targetSettings));
+            }
+ 
+            foreach (JsonConverter converter in _converterProviders.SelectMany(converterProvider => converterProvider.GetConverter()))
+            {
+                targetSettings.Converters.Add(converter);
+            }
+ 
+            if (logger != null)
+            {
+                targetSettings.Error += (sender, args) => logger.LogError(args.ErrorContext.Error, "Serialization error on {object}", args.CurrentObject);
+            }
+        }
+    }
+}
