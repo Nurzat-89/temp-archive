@@ -1,3 +1,21 @@
+
+   /// <summary>
+    /// Extensions for <see cref="IJsonSerializerSettingsFactory"/>
+    /// </summary>
+    public static class JsonSerializerSettingsFactoryExtension
+    {
+        /// <summary>
+        /// Create a <see cref="JsonSerializerSettings"/> and fill it with converters
+        /// </summary>
+        /// <param name="factory"></param>
+        /// <returns><see cref="JsonSerializerSettings"/> filled it with converters</returns>
+        public static JsonSerializerSettings Create([NotNull] this IJsonSerializerSettingsFactory factory)
+        {
+            var setting = new JsonSerializerSettings();
+            factory.SetJsonSerializerSettings(setting);
+            return setting;
+        }
+    }
 [8:34 PM] Nurzat Kenzhebayev
     public class JsonConverterCommonProvider : IJsonConverterProvider
 
