@@ -1,0 +1,109 @@
+using System.Windows.Documents;
+using System.Windows.Media;
+
+public FlowDocument CreateFlowDocumentWithFormat(string input)
+{
+    FlowDocument doc = new FlowDocument();
+    string[] lines = input.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+    foreach (string line in lines)
+    {
+        if (line.StartsWith("####"))
+        {
+            // Handle header formatting
+            Paragraph paragraph = new Paragraph();
+            paragraph.FontSize = 18;
+            AddFormattedTextToParagraph(paragraph, line.Substring(4));
+            doc.Blocks.Add(paragraph);
+        }
+        else if (line.StartsWith("-"))
+        {
+            // Handle bullet list
+            List list = new List();
+            ListItem listItem = new ListItem(new Paragraph(new Run(line.Substring(1).Trim())));
+            list.ListItems.Add(listItem);
+            doc.Blocks.Add(list);
+        }
+        else
+        {
+            // Handle normal text
+            Paragraph paragraph = new Paragraph();
+            AddFormattedTextToParagraph(paragraph, line);
+            doc.Blocks.Add(paragraph);
+        }
+    }
+
+    return doc;
+}
+
+private void AddFormattedTextToParagraph(Paragraph paragraph, string text)
+{
+    // Implement text parsing for bold, italic, and code here
+    // This is a placeholder for the actual implementation
+
+    // Example implementation
+    Run run = new Run(text);
+    paragraph.Inlines.Add(run);
+}
+
+
+
+
+public FlowDocument CreateFlowDocumentWithFormat(string input)
+{
+    FlowDocument doc = new FlowDocument();
+    string[] lines = input.Split('\n');
+
+    foreach (string line in lines)
+    {
+        Paragraph paragraph = new Paragraph();
+
+        // Check if line starts with #### for size formatting
+        if (line.StartsWith("####"))
+        {
+            paragraph.FontSize = 18;
+            AddFormattedTextToParagraph(paragraph, line.Substring(4));
+        }
+        else
+        {
+            AddFormattedTextToParagraph(paragraph, line);
+        }
+
+        doc.Blocks.Add(paragraph);
+    }
+
+    return doc;
+}
+
+private void AddFormattedTextToParagraph(Paragraph paragraph, string text)
+{
+    string[] parts = text.Split(new char[] { '*', '_' }, StringSplitOptions.RemoveEmptyEntries);
+    bool bold = false, italic = false;
+
+    foreach (string part in parts)
+    {
+        Run run = new Run(part);
+
+        if (bold)
+        {
+            run.FontWeight = FontWeights.Bold;
+            bold = false;
+        }
+        else if (italic)
+        {
+            run.FontStyle = FontStyles.Italic;
+            italic = false;
+        }
+
+        // Checking the next character in the original text to toggle bold/italic
+        int index = text.IndexOf(part);
+        if (index > 0)
+        {
+            char prevChar = text[index - 1];
+            if (prevChar == '*') bold = !bold;
+            if (prevChar == '_') italic = !italic;
+        }
+
+        paragraph.Inlines.Add(run);
+    }
+}
