@@ -1,0 +1,33 @@
+Self-Updating Feature Documentation for WPF Application
+Overview
+The self-updating feature in the WPF application enables users to update the application to the latest version with the click of a button. This document provides a comprehensive guide to using and understanding this feature.
+
+Feature Description
+The self-updating mechanism is integrated into the WPF application, allowing it to check for, download, and install updates automatically from a specified server. The process is initiated by the user through an "Update" button in the application interface.
+
+How It Works
+Check for Updates: When the user clicks the "Update" button, the application sends a request to the designated server to check for the availability of a newer version.
+
+Downloading Updates: If a new version is available, the application downloads the necessary files from the server. This process runs in the background, allowing the user to continue using the application.
+
+Installation of Updates: Once the download is complete, the application will automatically replace the old files with the new ones. This step might require the application to restart.
+
+Finalization: After the update process is complete, the application relaunches, if necessary, and is now up to date.
+
+User Interface
+Update Button: A clearly visible button labeled "Update" is present in the application interface.
+Progress Indicator: While the update is downloading, a progress indicator is displayed to the user.
+Notifications: The application notifies the user when an update starts and completes. If there are no updates available, the user is also notified.
+Error Handling
+Failed Update Attempts: In case of a failed update attempt, the application will notify the user and provide options to retry or postpone the update.
+Corrupted Downloads: The application checks the integrity of the downloaded files. If a file is corrupted, the application attempts to redownload it.
+System Requirements
+Internet Connection: A stable internet connection is required to download updates.
+Permissions: The application must have the necessary permissions to modify its installation files.
+Security
+Secure Connection: All communications with the update server are conducted over a secure connection.
+Authentication: The application verifies the authenticity of the downloaded files to prevent any security breaches.
+Support
+For any issues or inquiries regarding the self-updating feature, users can contact [Support Contact Information].
+
+Note: Replace placeholders like [Support Contact Information] with actual details. Ensure that this documentation is updated with each application release to reflect any changes or enhancements to the self-updating feature.
