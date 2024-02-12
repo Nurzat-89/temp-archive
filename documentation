@@ -31,3 +31,8 @@ Support
 For any issues or inquiries regarding the self-updating feature, users can contact [Support Contact Information].
 
 Note: Replace placeholders like [Support Contact Information] with actual details. Ensure that this documentation is updated with each application release to reflect any changes or enhancements to the self-updating feature.
+
+
+Remind Me Later: If the user is not ready to update, they can click the "Remind Me Later" button to postpone the update notification.
+
+Rescheduling Notifications: When "Remind Me Later" is selected, the application will remind the user again at 11:00 AM the next day.
