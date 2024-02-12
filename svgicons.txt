@@ -651,3 +651,18 @@ namespace Schenck.Mas.Backend.Common.ApiContract.Client
         }
     }
 }
+
+
+<DrawingImage x:Key="send_01DrawingImage">
+  <DrawingImage.Drawing>
+    <DrawingGroup ClipGeometry="M0,0 V97 H97 V0 H0 Z">
+      <DrawingGroup Opacity="1">
+        <GeometryDrawing Geometry="F1 M97,97z M0,0z M42.7872,54.2136L84.7871,12.2136 M43.2975,55.5258L53.8099,82.5578C54.736,84.9392 55.1991,86.1299 55.8663,86.4776 56.4447,86.7789 57.1337,86.7793 57.7124,86.4786 58.38,86.1318 58.8445,84.9417 59.7734,82.5614L86.1347,15.0104C86.9733,12.8617 87.3925,11.7873 87.1632,11.1008 86.964,10.5046 86.4961,10.0367 85.8999,9.83754 85.2134,9.6082 84.1391,10.0275 81.9904,10.866L14.4394,37.2273C12.0591,38.1562 10.8689,38.6207 10.5221,39.2883 10.2214,39.8671 10.2218,40.5561 10.5232,41.1345 10.8708,41.8017 12.0615,42.2647 14.4429,43.1908L41.4749,53.7033C41.9583,53.8912 42.2,53.9852 42.4035,54.1304 42.5839,54.2591 42.7416,54.4168 42.8703,54.5972 43.0155,54.8007 43.1095,55.0424 43.2975,55.5258z">
+          <GeometryDrawing.Pen>
+            <Pen Brush="#FF08354F" Thickness="8" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+          </GeometryDrawing.Pen>
+        </GeometryDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+  </DrawingImage.Drawing>
+</DrawingImage>
