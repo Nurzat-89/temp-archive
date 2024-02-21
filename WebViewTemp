@@ -1,0 +1,34 @@
+using Microsoft.Web.WebView2.Core;
+using System;
+using System.Collections.Generic;
+
+// Assuming you have already initialized the WebView2 control
+webView.CoreWebView2InitializationCompleted += WebView_CoreWebView2InitializationCompleted;
+
+private async void WebView_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
+{
+    if (e.IsSuccess)
+    {
+        // Get the CoreWebView2 object
+        CoreWebView2 webView2 = webView.CoreWebView2;
+
+        // Add custom headers to the WebView2 environment
+        Dictionary<string, string> customHeaders = new Dictionary<string, string>();
+        customHeaders.Add("Custom-Header", "CustomValue");
+
+        // Set the custom headers
+        await webView2.AddWebResourceRequestedFilter("*", CoreWebView2WebResourceContext.All);
+        webView2.WebResourceRequested += (s, args) =>
+        {
+            foreach (var header in customHeaders)
+            {
+                args.Request.Headers.Append(header.Key, header.Value);
+            }
+        };
+    }
+    else
+    {
+        // WebView2 initialization failed
+        Console.WriteLine("WebView2 initialization failed.");
+    }
+}
