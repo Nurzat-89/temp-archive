@@ -1,3 +1,6 @@
+
+{"arguments":["message_to_send"],"target":"MethodToInvoke","type":1}
+
 @echo off
 set "source_folder=C:\path\to\your\folder"
 set "zip_file=C:\path\to\your\zip\file.zip"
