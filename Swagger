@@ -1,0 +1,49 @@
+public class SwaggerBasicAuthMiddleware
+{
+    private readonly RequestDelegate _next;
+    private readonly IWebHostEnvironment _environment;
+    private readonly SwaggerCredentialSettings _swaggerCredential;
+
+    public SwaggerBasicAuthMiddleware(RequestDelegate next, 
+        IConfiguration configuration,
+        IWebHostEnvironment environment)
+    {
+        _next = next;
+        _swaggerCredential = configuration.GetSection("SwaggerCredentials").Get<SwaggerCredentialSettings>();
+        _environment = environment;
+    }
+
+    public async Task InvokeAsync(HttpContext context, IAzureKeyVaultService azureKeyVaultService)
+    {
+        if (context.Request.Path.StartsWithSegments("/swagger")
+            && !_environment.IsDevelopment())
+        {
+            string authHeader = context.Request.Headers["Authorization"];
+            if (authHeader != null && authHeader.StartsWith("Basic "))
+            {
+                var swaggerUserName = azureKeyVaultService.GetSecret(_swaggerCredential.UserName);
+                var swaggerPassword = azureKeyVaultService.GetSecret(_swaggerCredential.Password);
+                var encodedUsernamePassword = authHeader.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries)[1]?.Trim();
+                var decodedUsernamePassword = Encoding.UTF8.GetString(Convert.FromBase64String(encodedUsernamePassword));
+
+                var username = decodedUsernamePassword.Split(':', 2)[0];
+                var password = decodedUsernamePassword.Split(':', 2)[1];
+
+                if (username.Equals(swaggerUserName, StringComparison.InvariantCultureIgnoreCase) 
+                    && password.Equals(swaggerPassword))
+                {
+                    await _next.Invoke(context);
+                    return;
+                }
+            }
+
+            context.Response.Headers["WWW-Authenticate"] = "Basic";
+
+            context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+        }
+        else
+        {
+            await _next.Invoke(context);
+        }
+    }
+}
