@@ -54,3 +54,39 @@
     </DrawingGroup>
   </DrawingImage.Drawing>
 </DrawingImage>
+
+
+
+
+public partial class NotificationWindow : Window
+    {
+        private DispatcherTimer _timer;
+
+        public NotificationWindow()
+        {
+            InitializeComponent();
+            PositionWindow();
+        }
+
+        private void PositionWindow()
+        {
+            var desktopWorkingArea = SystemParameters.WorkArea;
+            this.Left = desktopWorkingArea.Right - this.Width - 10;  // 10 is the margin from the edge
+            this.Top = desktopWorkingArea.Bottom - this.Height - 10;
+        }
+
+        public void ShowNotification(string message, int durationInSeconds)
+        {
+            NotificationText.Text = message;
+            this.Show();
+
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(durationInSeconds);
+            _timer.Tick += (s, e) => 
+            {
+                _timer.Stop();
+                this.Close();
+            };
+            _timer.Start();
+        }
+    }
