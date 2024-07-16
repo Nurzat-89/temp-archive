@@ -17,3 +17,16 @@
 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9 1L1 9M1 1L9 9" stroke="#AFB0B3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
+
+
+<DrawingImage x:Key="CloseLightButtonDrawingImage">
+  <DrawingImage.Drawing>
+    <DrawingGroup ClipGeometry="M0,0 V10 H10 V0 H0 Z">
+      <GeometryDrawing Geometry="F1 M10,10z M0,0z M9,1L1,9 M1,1L9,9">
+        <GeometryDrawing.Pen>
+          <Pen Brush="#FFAFB0B3" Thickness="1.5" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+        </GeometryDrawing.Pen>
+      </GeometryDrawing>
+    </DrawingGroup>
+  </DrawingImage.Drawing>
+</DrawingImage>
