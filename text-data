@@ -1,0 +1,1 @@
+Would it be more efficient to use an external tool, like Microsoft Application Insights, for collecting user telemetry data? I could integrate it with our desktop application to track key metrics such as application version, username, IP address, last used date, and more. What are your thoughts on this approach?
