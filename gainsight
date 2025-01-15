@@ -9,3 +9,16 @@ string pxScript = @"
                 accountId: 'ACCOUNT_ID'
             });
         ";
+
+GainsightPXClient.TrackEvent("PageView", new Dictionary<string, object>
+{
+    { "pageName", "Dashboard" },
+    { "url", "https://app.example.com/dashboard" }
+});
+
+string pageTitle = await webView21.ExecuteScriptAsync("document.title");
+
+                // Clean up the result (removes extra quotes from JSON result)
+                pageTitle = pageTitle.Trim('"');
+
+string currentUrl = webView21.Source.ToString();
