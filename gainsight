@@ -1,0 +1,11 @@
+string pxScript = @"
+            (function(n,t,a,e,x){n[a]=n[a]||function(){
+            (n[a].q=n[a].q||[]).push(arguments)},x=t.createElement('script'),
+            x.async=!0,x.src='https://cdn.aptrinsic.com/sdk/latest/aptrinsic.js',
+            e=t.getElementsByTagName('script')[0],e.parentNode.insertBefore(x,e)})
+            (window,document,'aptrinsic');
+            aptrinsic('init', 'YOUR_API_KEY', {
+                userId: 'USER_ID',
+                accountId: 'ACCOUNT_ID'
+            });
+        ";
