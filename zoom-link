@@ -4,3 +4,11 @@ https://gainsight.zoom.us/j/99220235817?pwd=yVrnaZoz62bl4isJVjQ4bWB0QcM9uz.1
 Hi Brittany, yes I can explain. In these days I was working on fixing the SignalR issue. It was fixed and created new build. Also I made some investigation on Gainsight sending events from desktop. Also there was one task which I was working, currently we create a new version of build manually, we copy folder to OneDrive shared folder, and Bryan runs the signing by manually. This can be done in pipleine in automatic way. I think its necessray to quickly deploy a new version and test it by QA. So I setup the pipeline.
 
 Regarding the SignalR issue, it took long time I agree, maybe I overestimated by working hours. It was difficult to reproduce it and investigate the log files from testes.
+
+Yes, I can explain. Over the past few days, I’ve been working on fixing the SignalR issue. It has now been resolved, and I created a new build. Additionally, I investigated how Gainsight sends events from the desktop.
+
+I was also working on another task related to our build process. Currently, we manually create a new build version by copying the folder to a OneDrive shared folder, and Bryan manually handles the signing. This process can be automated in the pipeline, which would allow us to deploy new versions more quickly for QA testing. To streamline this, I set up the pipeline.
+
+Regarding the SignalR issue, I agree that it took longer than expected—perhaps I overestimated the required hours. The challenge was reproducing the issue and analyzing the log files from the tests.
+
+Let me know if you have any questions.
