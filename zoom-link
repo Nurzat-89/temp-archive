@@ -1,14 +1,12 @@
 https://gainsight.zoom.us/j/99825775458?pwd=wll6srqy71IUnWgB2W8d7AtkUk3bYE.1
 https://gainsight.zoom.us/j/99220235817?pwd=yVrnaZoz62bl4isJVjQ4bWB0QcM9uz.1
 
-Hi Brittany, yes I can explain. In these days I was working on fixing the SignalR issue. It was fixed and created new build. Also I made some investigation on Gainsight sending events from desktop. Also there was one task which I was working, currently we create a new version of build manually, we copy folder to OneDrive shared folder, and Bryan runs the signing by manually. This can be done in pipleine in automatic way. I think its necessray to quickly deploy a new version and test it by QA. So I setup the pipeline.
 
-Regarding the SignalR issue, it took long time I agree, maybe I overestimated by working hours. It was difficult to reproduce it and investigate the log files from testes.
 
-Yes, I can explain. Over the past few days, I’ve been working on fixing the SignalR issue. It has now been resolved, and I created a new build. Additionally, I investigated how Gainsight sends events from the desktop.
+Hi Bryan. I hope you’re doing well. I’d like to discuss the possibility of increasing my hourly salary by $50. I have been working on the project for the past two years, and I remain motivated to contribute and improve the product. However, I’ve noticed that there are currently not many tasks available for the desktop project. I believe it would be beneficial to establish a long-term roadmap, allowing for better planning and structured development.
 
-I was also working on another task related to our build process. Currently, we manually create a new build version by copying the folder to a OneDrive shared folder, and Bryan manually handles the signing. This process can be automated in the pipeline, which would allow us to deploy new versions more quickly for QA testing. To streamline this, I set up the pipeline.
+I also want to acknowledge that, in the past, I have sometimes overestimated task efforts. Moving forward, I’m focused on refining my estimations and ensuring efficient progress. Additionally, I have several ideas for improving the project, but without assigned tasks, it has been challenging to implement them.
 
-Regarding the SignalR issue, I agree that it took longer than expected—perhaps I overestimated the required hours. The challenge was reproducing the issue and analyzing the log files from the tests.
+If there are other opportunities within the company, I’d be open to considering them as well. I have strong backend experience and would be happy to contribute in that area if needed.
 
-Let me know if you have any questions.
+Let me know if we can discuss this further. Looking forward to your thoughts.
