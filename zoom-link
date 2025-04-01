@@ -10,3 +10,51 @@ I also want to acknowledge that, in the past, I have sometimes overestimated tas
 If there are other opportunities within the company, I’d be open to considering them as well. I have strong backend experience and would be happy to contribute in that area if needed.
 
 Let me know if we can discuss this further. Looking forward to your thoughts.
+
+
+
+Here’s a structured breakdown of the Jira tasks and subtasks for setting up the Azure pipeline:
+
+### **Task: Setup Azure Pipeline for Windows Desktop Application**  
+**Description:**  
+Automate the build process for the .NET Windows desktop application using Azure Pipeline. The pipeline should include steps for building, testing, creating an installation file, signing, and tagging new releases. A successful release should be automatically available for deployment.  
+
+**Estimated Time:** 20 hours  
+
+#### **Subtasks:**  
+
+1. **Create Azure Pipeline YAML Configuration**  
+   - Define the pipeline structure with stages: build, test, package, and sign.  
+   - Configure necessary triggers for automatic execution.  
+   - Ensure pipeline integrates with the source repository.  
+   - **Estimation:** 5 hours  
+
+2. **Setup Build and Test Stages**  
+   - Define the build process using MSBuild.  
+   - Integrate test execution (e.g., NUnit, MSTest).  
+   - Ensure artifacts are properly stored for later stages.  
+   - **Estimation:** 4 hours  
+
+3. **Generate Installation File**  
+   - Implement an automated process to package the application using Inno Setup or another installer.  
+   - Store the installer as an artifact.  
+   - **Estimation:** 3 hours  
+
+4. **Implement Code Signing**  
+   - Configure code signing with a valid certificate.  
+   - Ensure proper security measures for certificate storage.  
+   - Validate successful signing of the installation file.  
+   - **Estimation:** 3 hours  
+
+5. **Tagging and Release Management**  
+   - Automate version tagging in the repository.  
+   - Ensure new releases are automatically published with the correct version tag.  
+   - **Estimation:** 3 hours  
+
+6. **Verify and Test the Pipeline**  
+   - Run end-to-end tests to validate the pipeline process.  
+   - Fix any issues encountered.  
+   - Ensure that the generated installation file works correctly.  
+   - **Estimation:** 2 hours  
+
+Would you like me to refine any parts or add dependencies between tasks?
